@@ -3,10 +3,20 @@
 import React, { Component } from 'react'
 
 class App extends Component {
+  constructor () {
+    super()
+
+    this.state = {
+      text: 'Jean'
+    }
+  }
+
   render () {
     return (
-      <div className='container'>
-        App
+      <div className='container' onClick={() => this.setState({
+        text: 'Outro texto, clicou'
+      })}>
+       {this.state.text}
       </div>
     )
   }
