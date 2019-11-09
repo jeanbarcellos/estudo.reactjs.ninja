@@ -6,7 +6,7 @@ const paths = {
   root: join(__dirname, '..'),
   src: join(__dirname, '..', 'src'),
   dist: join(__dirname, '..', 'dist'),
-  normalizeCss: join(__dirname, '..', 'node_modules', 'normalize.css'),
+  normalizeCss: join(__dirname, '..', 'node_modules', 'normalize.css')
 }
 
 module.exports = {
