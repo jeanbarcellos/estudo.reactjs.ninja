@@ -6,6 +6,7 @@ const common = require('./common')
 const HtmlPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const ClenarPlugin = require('clean-webpack-plugin')
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 
 module.exports = {
 
@@ -14,6 +15,8 @@ module.exports = {
   output: common.output,
 
   plugins: [
+    new BundleAnalyzerPlugin(),
+
     new ClenarPlugin(['dist'], {
       root: common.paths.root
     }),
