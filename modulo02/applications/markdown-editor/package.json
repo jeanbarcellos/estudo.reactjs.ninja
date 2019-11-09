@@ -41,6 +41,7 @@
     "webpack-dev-server": "^2.3.0"
   },
   "dependencies": {
+    "highlight.js": "9.10.0",
     "marked": "0.3.6",
     "normalize.css": "^8.0.1",
     "react": "^15.4.2",
