@@ -1,9 +1,10 @@
 'use strict'
 
 import React, { Component } from 'react'
-
-import './css/style.css'
 import MarkdownEditor from './markdown-editor'
+
+import 'normalize.css'
+import './css/style.css'
 
 class App extends Component {
   constructor () {
@@ -17,13 +18,18 @@ class App extends Component {
         value: e.target.value
       })
     }
+
+    this.getMarkup = () => {
+      return { __html: this.state.value }
+    }
   }
 
   render () {
     return (
       <MarkdownEditor
         value={this.state.value}
-        handleChange={this.handleChange} />
+        handleChange={this.handleChange}
+        getMarkup={this.getMarkup} />
     )
   }
 }
