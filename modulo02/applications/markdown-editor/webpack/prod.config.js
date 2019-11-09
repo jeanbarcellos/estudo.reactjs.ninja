@@ -33,7 +33,8 @@ module.exports = {
       name: 'react-build',
       chunks: ['main'],
       minChunks: ({ resource }) => (
-        /node_modules\/(react(-dom)?|fbjs)\//.test(resource)
+        /node_modules\/(react(-dom)?|fbjs)\//.test(resource) ||
+        /node_modules\/preact/.test(resource)
       )
     }),
 
@@ -82,6 +83,12 @@ module.exports = {
     ]
   },
 
-  resolve: common.resolve
+  resolve: {
+    alias: Object.assign({}, common.resolve.alias, {
+      'react': 'preact-compat',
+      'react-dom': 'preact-compat'
+    })
+  }
+
 }
 // webpack-dashboard --
