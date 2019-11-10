@@ -62,7 +62,7 @@ module.exports = {
         const right = order.indexOf(chunk2.names[0])
         return left - right
       }
-    })),
+    }))
   ].concat(
     process.env.ANALYZER ? new BundleAnalyzerPlugin() : []
   ),
