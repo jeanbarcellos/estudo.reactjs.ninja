@@ -68,10 +68,10 @@ class App extends Component {
     }
   }
 
-  componentDidMount () {
-    const value = localStorage.getItem('md')
-    this.setState({ value: value || '' })
-  }
+  // componentDidMount () {
+  //   const value = localStorage.getItem('md')
+  //   this.setState({ value: value || '' })
+  // }
 
   componentDidUpdate () {
     clearInterval(this.timer)
