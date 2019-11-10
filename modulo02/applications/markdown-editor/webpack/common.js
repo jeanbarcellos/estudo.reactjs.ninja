@@ -78,6 +78,7 @@ module.exports = {
     alias: {
       src: paths.src,
       components: join(paths.src, 'components'),
+      views: join(paths.src, 'views'),
       utils: join(paths.src, 'utils')
     }
   }

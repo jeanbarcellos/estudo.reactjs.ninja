@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react'
 import marked from 'marked'
-import MarkdownEditor from 'components/markdown-editor'
+import MarkdownEditor from 'views/markdown-editor'
 
 import './css/style.css'
 
@@ -65,7 +65,7 @@ class App extends Component {
 
   componentDidUpdate () {
     clearInterval(this.timer)
-    this.timer = setTimeout(this.handleSave, 1000)
+    this.timer = setTimeout(this.handleSave, 300)
   }
 
   componentWillUnmount () {
