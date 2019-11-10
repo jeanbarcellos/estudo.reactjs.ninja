@@ -3,9 +3,11 @@
 import React, { PropTypes } from 'react'
 import Header from './markdown-editor-header'
 
-const MarkdownEditor = ({ value, handleChange, isSaving, getMarkup }) => (
+const MarkdownEditor = ({ value, handleChange, handleRemove, isSaving, getMarkup }) => (
   <section className='editor'>
-    <Header isSaving={isSaving} />
+    <Header
+      isSaving={isSaving}
+      handleRemove={handleRemove} />
 
     <textarea value={value} onChange={handleChange} autoFocus />
 
@@ -16,7 +18,6 @@ const MarkdownEditor = ({ value, handleChange, isSaving, getMarkup }) => (
 MarkdownEditor.propTypes = {
   value: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
-  isSaving: PropTypes.bool.isRequired,
   getMarkup: PropTypes.func.isRequired
 }
 
