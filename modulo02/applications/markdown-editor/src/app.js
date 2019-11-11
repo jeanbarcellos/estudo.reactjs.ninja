@@ -30,6 +30,7 @@ class App extends Component {
     this.state = {
       ...this.clearState(),
       isSaving: null,
+      title: '',
       files: {}
     }
     this.handleChange = e => {
@@ -122,6 +123,7 @@ class App extends Component {
         textareaRef={this.textareaRef}
         files={this.state.files}
         handleOpenFile={this.handleOpenFile}
+        title={this.state.title}
       />
     )
   }
