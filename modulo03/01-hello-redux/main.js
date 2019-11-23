@@ -12,32 +12,33 @@ const counter = (state = 0, action) => {
 }
 
 const { createStore } = Redux
+const store = createStore(counter) // fonte de verdade
 
-const store = createStore(counter)
+// Criar as variáveis
+const $counter = document.querySelector('[data-js="counter"]')
+const $decrement = document.querySelector('[data-js="decrement"]')
+const $increment = document.querySelector('[data-js="increment"]')
 
+// Aducionando eventos para os botões
+$decrement.addEventListener('click', decrement, false)
+$increment.addEventListener('click', increment, false)
+
+// Criar as funções
+function decrement() {
+  store.dispatch({ type: 'DECREMENT' })
+}
+
+function increment() {
+  store.dispatch({ type: 'INCREMENT' })
+}
+
+// manipular valor
 store.subscribe(() => {
-  console.log('Disparou uma ação!', store.getState())
+  //$counter.innerHTML = store.getState()
+  $counter.textContent = store.getState()
 })
 
-store.dispatch({ type: 'INCREMENT' })
-store.dispatch({ type: 'INCREMENT' })
-store.dispatch({ type: 'DECREMENT' })
-
-/*
-
-https://redux.js.org/api/store
-
-// const store = createStore(reducer, [preloadedState], [enhancer])
-Cria uma loja Redux que contém a árvore de estados completa do seu aplicativo.
-Só deve haver uma única loja no seu aplicativo.
-
-// store.getState()
-retorna o estado atual
-
-//  dispatch(action)
-Despacha uma ação. Essa é a única maneira de desencadear uma mudança de estado.
-
-// subscribe(listener)
-Adiciona um ouvinte de alterações. Será chamado sempre que uma ação for despachada, e parte da árvore de estados pode ter sido alterada. Você pode ligar getState()para ler a árvore de estado atual dentro do retorno de chamada.
-Executada toda vez que uma ação for disparada
-*/
+// logar
+store.subscribe(() => {
+  console.log('state: ' + store.getState())
+})
