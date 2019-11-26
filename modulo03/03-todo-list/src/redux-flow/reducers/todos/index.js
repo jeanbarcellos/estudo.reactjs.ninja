@@ -1,6 +1,7 @@
 'use strict'
 
 import { ADD_TODO, TOGGLE_TODO } from './actions'
+import createReducer from '../create-reducer'
 
 export const initialState = []
 
@@ -24,6 +25,8 @@ const todos = createReducer(initialState, {
       }
     })
 })
+
+console.log(todos)
 
 // const todos = (state = initialState, action) => {
 //   switch (action.type) {
