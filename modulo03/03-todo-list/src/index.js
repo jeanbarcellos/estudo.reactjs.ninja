@@ -3,15 +3,19 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
+import { createStore } from 'redux'
 
 import App from './app'
+import reducer from 'reducers/todos'
 
+const store = createStore(reducer)
+console.log(store)
 /**
  * Rendenrizar o app
  *
  * @param {*} NextApp
  */
-const renderApp = (NextApp) => {
+const renderApp = NextApp => {
   render(
     <AppContainer>
       <NextApp />
