@@ -9,10 +9,14 @@ import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 
 import App from './app'
-import reducer from 'reducers/todos'
+import reducer from 'reducers'
 
 const store = createStore(reducer)
-console.log(store)
+
+store.subscribe(() => {
+  console.log('state:', store.getState())
+})
+
 /**
  * Rendenrizar o app
  *

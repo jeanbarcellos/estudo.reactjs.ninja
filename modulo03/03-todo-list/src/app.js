@@ -31,14 +31,11 @@ const App = ({ todos, handleAddTodo, handleToggleTodo }) => (
   </div>
 )
 
-// mapear estado para propriedades
 const mapStateToProps = state => ({
-  todos: state
+  todos: state.todos
 })
 
-// mapear dispatch para propriedades
 const mapDispatchToProps = dispatch => ({
-  // add
   handleAddTodo: e => {
     e.preventDefault()
     dispatch(addTodo(e.target.todo.value))
