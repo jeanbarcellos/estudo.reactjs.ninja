@@ -19,7 +19,7 @@ class SearchCepContainer extends PureComponent {
     }).get('http://apps.widenet.com.br/busca-cep/api/cep.json', { code: cep })
 
     this.setState({ isFetching: false })
-    this.props.dispatch(updateAddress(response))
+    this.props.updateAddress(response)
   }
 
   render() {
@@ -37,4 +37,10 @@ const mapStateToProps = state => ({
   address: state.address
 })
 
-export default connect(mapStateToProps)(SearchCepContainer)
+
+// const mapDispatchToProps = (dispatch) = ({
+//   updateAddress: data => dispatch(updateAddress(data))
+// })
+const mapDispatchToProps = { updateAddress }
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchCepContainer)
