@@ -1,11 +1,18 @@
-
 'use strict'
 
 import React from 'react'
 
-const App = () => (
+import { connect } from 'react-redux'
+import { addTodo } from 'reducers/todos/action-creators'
+
+const App = ({ todos, handleAddTodo }) => (
   <div>
-    <input type='text' />
+    <form onSubmit={handleAddTodo}>
+      <input type='text' name='todo' />
+      <button type='submit'>Adicionar</button>
+    </form>
+
+    {console.log(todos)}
 
     <ul>
       <li style={{ textDecoration: 'line-through' }}>Item 1</li>
@@ -22,4 +29,17 @@ const App = () => (
   </div>
 )
 
-export default App
+// mapear estado para propriedades
+const mapStateToProps = state => ({
+  todos: state
+})
+
+// mapear dispatch para propriedades
+const mapDispatchToProps = dispatch => ({
+  handleAddTodo: e => {
+    e.preventDefault()
+    dispatch(addTodo(e.target.todo.value))
+  }
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
