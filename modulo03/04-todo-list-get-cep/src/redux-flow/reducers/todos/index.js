@@ -26,8 +26,6 @@ const todos = createReducer(initialState, {
     })
 })
 
-console.log(todos)
-
 // const todos = (state = initialState, action) => {
 //   switch (action.type) {
 //     case ADD_TODO:
