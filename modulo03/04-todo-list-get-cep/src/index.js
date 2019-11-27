@@ -11,30 +11,14 @@ import { Provider } from 'react-redux'
 import App from './app'
 import reducer from 'reducers'
 
-const initialState = {
-  todos: [
-    {
-      text: 'auto',
-      id: '123',
-      completed: true
-    }
-  ],
+const store = createStore(reducer)
 
-  address: {
-    address: 'Rua tal',
-    city: 'cidade',
-    code: '10101-123',
-    district: 'Bairro',
-    state: 'PR',
-    status: 1
-  }
+const renderState = () => {
+  console.log('state:', store.getState())
 }
 
-const store = createStore(reducer, initialState)
-
-store.subscribe(() => {
-  console.log('state:', store.getState())
-})
+store.subscribe(renderState)
+renderState();
 
 /**
  * Rendenrizar o app
@@ -60,6 +44,13 @@ if (module.hot) {
 
     renderApp(NextApp)
   })
+
+  // M3#A62 - replaceReducer - hot reload para reducers
+  module.hot.accept('reducers', () => {
+    const nextReducer = require('reducers').default
+    store.replaceReducer(nextReducer)
+  })
+
 }
 
 // entrada de edição dos arquivos

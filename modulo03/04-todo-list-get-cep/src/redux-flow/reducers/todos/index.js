@@ -26,6 +26,9 @@ const todos = createReducer(initialState, {
     })
 })
 
+export default todos
+
+
 // const todos = (state = initialState, action) => {
 //   switch (action.type) {
 //     case ADD_TODO:
@@ -50,5 +53,3 @@ const todos = createReducer(initialState, {
 
 //   return state
 // }
-
-export default todos
