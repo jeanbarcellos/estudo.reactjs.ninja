@@ -5,13 +5,20 @@ import { render } from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
 
 // Redux
-import { createStore } from 'redux'
+import { createStore, applyMiddleware  } from 'redux'
 import { Provider } from 'react-redux'
 
 import App from './app'
 import reducer from 'reducers'
 
-const store = createStore(reducer)
+const logger = ({ dispatch, getState }) => (next) => (action) => {
+  console.log('LOGGER::will dispatch:', action)
+  const nextAction = next(action)
+  console.log('LOGGER::next action:', nextAction)
+  return nextAction
+}
+
+const store = createStore(reducer, applyMiddleware(logger))
 
 const renderState = () => {
   console.log('state:', store.getState())
