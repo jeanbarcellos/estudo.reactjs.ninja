@@ -12,13 +12,9 @@ const App = () => (
       <h1>Reactflix</h1>
     </Header>
 
-    <Main>
-      Conteúdo
-    </Main>
+    <Main>Conteúdo</Main>
 
-    <Footer>
-      &copy; 2018
-    </Footer>
+    <Footer>&copy; 2018</Footer>
   </Container>
 )
 
@@ -45,7 +41,7 @@ const Main = styled.main`
 `
 
 const Footer = styled.footer`
-   height: ${footerHeight};
+  height: ${footerHeight};
   background: #333;
 `
 
