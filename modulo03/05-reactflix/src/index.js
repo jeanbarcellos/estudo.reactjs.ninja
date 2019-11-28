@@ -9,25 +9,6 @@ import { Provider } from 'react-redux'
 import App from './app'
 import configureStore from './redux-flow/configure-store'
 
-import { db } from './config/firebase'
-
-console.log(db)
-
-const videos = db.ref('videos')
-
-videos.child('123').set({
-  id: '123',
-  title: 'JavaScript Secrets 3'
-})
-
-db.ref('categories').remove()
-
-videos.on('value', (snapshot) => {
-  console.log('snapshot:', snapshot.val())
-}, (error) => {
-  console.log('error:', error)
-})
-
 const store = configureStore()
 
 /**
